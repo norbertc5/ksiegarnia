@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ksiegarniaStyle.css">
+    <script src="ksiegarniaJs.js"></script>
+</head>
+<body>
+    
+    <h2>Zaloguj się</h2>
+
+    <form method="post" enctype="multipart/form-data" id="form">
+        <table>
+            <tr>
+            <td>Imie</td>
+            <td><input type="text" id="name" name="name"></td>
+            </tr>
+            <tr>
+                <td>Nazwisko</td>
+                <td><input type="text" id="surname" name="surname"></td>
+                </tr>
+            <tr>
+            <td>Hasło</td>
+            <td><input type="password" id="password" name="password"></td>
+            </tr>
+        </table>
+        <div id="button" onclick="send()">Zaloguj się</div>
+        <div id="button" onclick="openURL('ksiegarniaIndex.php')">Wróć</div>
+    </form>
+
+    <script>
+        function send()
+        {
+            let nameField = document.getElementById("name");
+            let surnameField = document.getElementById("surname");
+            let passwordField = document.getElementById("password");
+
+            if(nameField.value != "root" && (surnameField.value == "" || passwordField.value == ""))
+            {
+                alert("Podaj imie, nazwisko i hasło.")
+                return
+            }
+
+                document.getElementById("form").action = "sprawdzKlienta.php"
+            document.getElementById("form").submit()
+        }
+    </script>
+
+    <footer>
+        <hr>
+        Norbert Cierpich 2024
+    </footer>
+
+</body>
+</html>

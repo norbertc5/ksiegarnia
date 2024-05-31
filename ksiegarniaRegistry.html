@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ksiegarniaStyle.css">
+    <script src="ksiegarniaJs.js"></script>
+</head>
+<body>
+    <h2>Zarejestruj się</h2>
+    <form action="zarejestrujSie.php" method="post" enctype="multipart/form-data" id="form">
+        <table>
+            <tr>
+                <td>Imie</td>
+                <td><input type="text" name="clientName" placeholder="Adam" id="name"></td>
+            </tr>
+            <tr>
+                <td>Nazwisko</td>
+                <td><input type="text" name="clientSurname" placeholder="Kaniarz" id="sname"></td>
+            </tr>
+            <tr>
+                <td>Hasło<br></td>
+                <td><input type="password" name="clientPassword" id="password1"></td>
+            </tr>
+            <tr>
+                <td>Powtórz hasło<br></td>
+                <td><input type="password" id="password2"></td>
+            </tr>
+        </table>
+        <div id="button" onclick="CheckPassword()">Zarejestruj się</div>
+        <div id="button" onclick="openURL('ksiegarniaIndex.php')">Wróć</div>
+    </form>
+
+    <script>
+
+        function CheckPassword()
+        {
+            let password1 = document.getElementById("password1")
+            let password2 = document.getElementById("password2")
+
+            if(password1.value != password2.value)
+            {
+                alert("Hasła muszą być takie same.")
+            }
+            else if(password1.value == "" || password2.value == "" ||
+            document.getElementById("name").value == "" || document.getElementById("sname").value == "")
+            {
+                alert("Wypełnij wszystkie pola.")
+            }
+            else
+            {
+                document.getElementById("form").submit()
+            }
+        }
+        
+    </script>
+
+    <footer>
+        <hr>
+        Norbert Cierpich 2024
+    </footer>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ksiegarniaStyle.css">
+    <script src="ksiegarniaJs.js"></script>
+</head>
+<body>
+    
+    <h2>Dodaj/usuń książkę</h2>
+    <form action="dodajUsunKsiazke.php" method="post" enctype="multipart/form-data" id="form">
+        <table>
+            <tr>
+                <td>Tytuł</td>
+                <td><input type="text" name="bookTitle" id="bookTitle" placeholder="Ogniem i mieczem."></td>
+            </tr>
+            <tr>
+                <td>Cena<br><small>(przy usuwaniu nie trzeba podawać)</small></td>
+                <td><input type="number" min="1" max="1000" name="bookPrice" id="bookPrice" value="50"></td>
+            </tr>
+            <tr>
+                <td>Ilość<br><small>(przy usuwaniu nie trzeba podawać)</small></td>
+                <td><input type="number" min="0" max="1000" name="bookAmount" id="bookAmount" value="50"></td>
+            </tr>
+            <tr>
+                <td>Dodaj/usuń</td>
+                
+                <td><input type="radio" name="action" value="create" style="width: 30px;" checked>Dodaj &nbsp &nbsp
+                <input type="radio" name="action" value="delete" style="width: 30px;">Usuń</td>
+
+                
+            </tr>
+        </table>
+        <div id="button" onclick="send()">Wykonaj</div>
+        <div id="button" onclick="openURL('adminPanel.html')">Admin panel</div>
+    </form>
+
+    <script>
+        function send()
+        {
+            if(document.getElementById("bookTitle").value != "" && document.getElementById("bookPrice").value != "" &&
+            document.getElementById("bookAmount").value != "")
+            {
+                document.getElementById("form").submit()
+            }
+            else
+            {
+                alert("Wypełnij wszystkie pola.");
+            }
+        }
+    </script>
+
+
+    <footer>
+        <hr>
+        Norbert Cierpich 2024
+    </footer>
+</body>
+</html>
